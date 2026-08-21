@@ -2,15 +2,16 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
-// 直接使用新專案的設定，不再依賴外部 json 檔案，避免路徑錯誤或讀到舊資料
+// 直接把你的 JSON 內容寫死在這裡，徹底排除路徑或讀取不到的問題！
 const firebaseConfig = {
+  projectId: "csim-tmtm",
+  appId: "1:758952426843:web:592b1d6cc66da8de8a6e7e",
   apiKey: "AIzaSyDKGrLuwgFDiZSbcxQcDCFCzFf-geyFjvE",
   authDomain: "csim-tmtm.firebaseapp.com",
-  projectId: "csim-tmtm",
+  firestoreDatabaseId: "(default)",
   storageBucket: "csim-tmtm.firebasestorage.app",
   messagingSenderId: "758952426843",
-  appId: "1:758952426843:web:592b1d6cc66da8de8a6e7e",
-  firestoreDatabaseId: "(default)"
+  measurementId: "G-K8YFVKBJ1P"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -18,7 +19,6 @@ export const auth = getAuth(app);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 
 const provider = new GoogleAuthProvider();
-// Request Workspace scopes
 provider.addScope('https://www.googleapis.com/auth/spreadsheets');
 provider.addScope('https://www.googleapis.com/auth/drive.file');
 
