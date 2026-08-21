@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
-// 直接把你的 JSON 內容寫死在這裡，徹底排除路徑或讀取不到的問題！
+// 直接寫死新專案的設定，徹底擺脫 JSON 檔案同步失敗的問題！
 const firebaseConfig = {
   projectId: "csim-tmtm",
   appId: "1:758952426843:web:592b1d6cc66da8de8a6e7e",
