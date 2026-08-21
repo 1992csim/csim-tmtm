@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
-// 直接寫死新專案的設定，徹底擺脫 JSON 檔案同步失敗的問題！
+// 直接寫死新專案的設定
 const firebaseConfig = {
   projectId: "csim-tmtm",
   appId: "1:758952426843:web:592b1d6cc66da8de8a6e7e",
@@ -13,6 +13,9 @@ const firebaseConfig = {
   messagingSenderId: "758952426843",
   measurementId: "G-K8YFVKBJ1P"
 };
+
+// 🔴 就是這裡！我們加一行測試用的 console.log
+console.log("🔥 檢查點：目前生效的 API Key 是 -->", firebaseConfig.apiKey);
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
