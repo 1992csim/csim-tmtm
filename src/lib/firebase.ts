@@ -1,7 +1,17 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
+
+// 直接使用新專案的設定，不再依賴外部 json 檔案，避免路徑錯誤或讀到舊資料
+const firebaseConfig = {
+  apiKey: "AIzaSyDKGrLuwgFDiZSbcxQcDCFCzFf-geyFjvE",
+  authDomain: "csim-tmtm.firebaseapp.com",
+  projectId: "csim-tmtm",
+  storageBucket: "csim-tmtm.firebasestorage.app",
+  messagingSenderId: "758952426843",
+  appId: "1:758952426843:web:592b1d6cc66da8de8a6e7e",
+  firestoreDatabaseId: "(default)"
+};
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
