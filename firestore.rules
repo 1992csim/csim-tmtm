@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /machines/{machineId} {
+      // 1. Read: Public access so anyone can scan QR and view public details
+      allow read, get, list: if true;
+
+      // 2. Write: Allow creating, updating, and deleting machine tracking documents
+      allow create, update, delete: if true;
+    }
+  }
+}

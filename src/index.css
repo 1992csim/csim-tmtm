@@ -1,0 +1,376 @@
+@import "tailwindcss";
+
+@media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    html, body {
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      background-color: white !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 13px !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .min-h-screen {
+      min-height: auto !important;
+      padding: 4mm !important;
+      background: white !important;
+    }
+
+    .max-w-6xl {
+      max-width: 100% !important;
+    }
+
+    body, .min-h-screen, .bg-white {
+      background-color: white !important;
+      background: white !important;
+    }
+
+    .bg-gray-50 {
+      background-color: #f9fafb !important;
+    }
+
+    .bg-gray-100 {
+      background-color: #f3f4f6 !important;
+    }
+    
+    .bg-blue-600, .bg-blue-500, .bg-emerald-500, .bg-indigo-600 {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* Preserve Flowchart Node Shading in Print */
+    .print-node-circle {
+      border: 2px solid #cbd5e1 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .bg-blue-500.print-node-circle {
+      background-color: #3b82f6 !important;
+      border-color: #3b82f6 !important;
+    }
+
+    .bg-blue-600.print-node-circle {
+      background-color: #2563eb !important;
+      border-color: #2563eb !important;
+    }
+
+    .bg-gray-100.print-node-circle {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Ensure specific borders show up */
+    .border, .border-b, .border-t, .border-l, .border-r {
+      border-color: #e2e8f0 !important;
+    }
+
+    /* Keep icons and motion divs sized correctly, except stepper icons and qr code */
+    svg:not(.qr-code-svg):not(.stepper-icon-svg) {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    svg.stepper-icon-svg {
+      width: 28px !important;
+      height: 28px !important;
+    }
+
+    /* Force the QR Code to be exactly 2cm as requested */
+    svg.qr-code-svg {
+      width: 2cm !important;
+      height: 2cm !important;
+    }
+
+    /* Prevent breaking inside stages if vertical */
+    .flex.gap-4.relative {
+      break-inside: avoid;
+    }
+
+    /* Linear Stepper Print Configuration */
+    .print-stepper-card {
+      padding: 0 !important;
+      margin-top: 5px !important;
+      margin-bottom: 5px !important;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      width: 100% !important;
+    }
+
+    .print-stepper-row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: flex-start !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      gap: 0 !important;
+      min-width: 100% !important;
+    }
+
+    .print-stepper-col {
+      flex: 1 1 0% !important;
+      width: 12.5% !important;
+      max-width: 12.5% !important;
+      min-width: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      box-sizing: border-box !important;
+    }
+
+    .print-node-circle {
+      width: 50px !important;
+      height: 50px !important;
+      min-width: 50px !important;
+      min-height: 50px !important;
+      border-radius: 9999px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 10 !important;
+    }
+
+    .print-stepper-line {
+      top: 25px !important;
+      left: 50% !important;
+      right: -50% !important;
+      height: 2px !important;
+      z-index: 1 !important;
+    }
+
+    /* Set distance between each icon and its corresponding text below to exactly 0.45 cm */
+    .print-stepper-text {
+      margin-top: 0.45cm !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .print-stepper-label {
+      font-size: 15.5px !important; /* Extremely readable yet space-efficient */
+      font-weight: 800 !important;
+      white-space: nowrap !important;
+      line-height: 1.2 !important;
+      color: #0f172a !important; /* 700 high contrast black */
+    }
+
+    .print-stepper-dates {
+      margin-top: 5px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 3px !important;
+    }
+
+    .print-stepper-detail {
+      font-size: 14.5px !important; /* Optimally sized for A4 landscape fitting */
+      font-weight: 700 !important; /* 700 bold weight */
+      white-space: nowrap !important;
+      color: #0f172a !important; /* 700 high contrast black */
+    }
+
+    /* Print-Only Table Styles */
+    table.print-stats-table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      margin-top: 20px !important;
+      table-layout: auto !important; /* Automatically adjusts column widths and row heights */
+    }
+
+    table.print-stats-table th,
+    table.print-stats-table td {
+      font-size: 14px !important; /* Perfectly proportioned to fit in A4 page layout */
+      font-weight: 800 !important; /* Elegant bold contrast */
+      text-align: center !important; /* Centered alignment */
+      vertical-align: middle !important;
+      white-space: nowrap !important; /* No wrapping */
+      padding: 8px 12px !important; /* Compact, clean padding to stay within A4 bounds */
+      border: 1.5px solid #cbd5e1 !important; /* High contrast clean borders */
+      height: auto !important;
+      width: auto !important;
+    }
+
+    table.print-stats-table th {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+      font-weight: 900 !important;
+    }
+
+    table.print-stats-table td {
+      color: #0f172a !important; /* High contrast deep black */
+    }
+
+    table.print-stats-table .print-progress-percent {
+      font-size: 14.5px !important; /* Highlight progress elegantly */
+      font-weight: 900 !important;
+      color: #1e3a8a !important;
+      white-space: nowrap !important;
+    }
+
+    table.print-stats-table .print-progress-container {
+      width: 100px !important; /* Proportional elegant progress bar size */
+      height: 8px !important;
+      border-radius: 9999px !important;
+      background-color: #f1f5f9 !important;
+    }
+
+    /* Page margins targeting single page fit */
+    @page {
+      margin: 6mm 10mm 6mm 10mm !important;
+      size: A4 landscape;
+    }
+
+    /* Compact layout adjustments to guarantee single Landscape A4 page fit */
+    .mt-12 { margin-top: 0.5rem !important; }
+    .mt-8 { margin-top: 0.35rem !important; }
+    .mb-8 { margin-bottom: 0.35rem !important; }
+    .mb-12 { margin-bottom: 0.5rem !important; }
+    .p-8 { padding: 0.5rem !important; }
+    .p-6 { padding: 0.5rem !important; }
+    .pb-6 { padding-bottom: 0.25rem !important; }
+    .gap-4 { gap: 0.25rem !important; }
+    .gap-6 { gap: 0.35rem !important; }
+  }
+
+/* Onscreen Simulated Print Sheet (Replicates actual print specifications so users can preview and verify sizes instantly inside browsers) */
+.simulated-print {
+  font-family: var(--font-sans) !important;
+}
+
+.simulated-print .print-stepper-card {
+  padding: 0 !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  width: 100% !important;
+}
+
+.simulated-print .print-stepper-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 0 !important;
+  min-width: 100% !important;
+}
+
+.simulated-print .print-stepper-col {
+  flex: 1 1 0% !important;
+  width: 12.5% !important;
+  max-width: 12.5% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+.simulated-print .print-node-circle {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+}
+
+.simulated-print .print-stepper-line {
+  top: 25px !important;
+  left: 50% !important;
+  right: -50% !important;
+  height: 2px !important;
+  z-index: 1 !important;
+}
+
+.simulated-print .print-stepper-text {
+  margin-top: 0.45cm !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.simulated-print .print-stepper-label {
+  font-size: 15.5px !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+  color: #0f172a !important;
+}
+
+.simulated-print .print-stepper-dates {
+  margin-top: 5px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+
+.simulated-print .print-stepper-detail {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  color: #0f172a !important;
+}
+
+.simulated-print table.print-stats-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 25px !important;
+  table-layout: auto !important;
+}
+
+.simulated-print table.print-stats-table th,
+.simulated-print table.print-stats-table td {
+  font-size: 14px !important; /* Matches print definition */
+  font-weight: 800 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  padding: 8px 12px !important;
+  border: 1.5px solid #cbd5e1 !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+.simulated-print table.print-stats-table th {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  font-weight: 900 !important;
+}
+
+.simulated-print table.print-stats-table td {
+  color: #0f172a !important;
+}
+
+.simulated-print table.print-stats-table .print-progress-percent {
+  font-size: 14.5px !important;
+  font-weight: 900 !important;
+  color: #1e3a8a !important;
+  white-space: nowrap !important;
+}
+
+.simulated-print table.print-stats-table .print-progress-container {
+  width: 100px !important;
+  height: 8px !important;
+  border-radius: 9999px !important;
+  background-color: #f1f5f9 !important;
+}
+

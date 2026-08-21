@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "Machine": {
+      "title": "Machine",
+      "description": "A manufacturing machine being tracked",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "customer": { "type": "string" },
+        "currentStage": { "type": "integer" },
+        "stageData": { "type": "object" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "customer", "currentStage"]
+    }
+  },
+  "firestore": {
+    "machines": {
+      "schema": "Machine",
+      "description": "Global list of machines and their manufacturing progress"
+    }
+  }
+}

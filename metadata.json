@@ -1,0 +1,8 @@
+{
+  "name": "機台製造進度系統(更改字版)",
+  "description": "專業機台製造生命週期追蹤系統，整合 AI 智能預警與即時進度監控。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

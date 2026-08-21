@@ -1,0 +1,21 @@
+{
+  "name": "Remix: 機台進度追蹤系統",
+  "short_name": "機台追蹤",
+  "description": "自動化機台製造進度視覺化管理工具",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2942/2942544.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2942/2942544.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
